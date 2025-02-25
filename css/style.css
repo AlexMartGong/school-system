@@ -1,0 +1,57 @@
+.sidebar {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    color: #333;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #e9ecef;
+    padding-left: 1.5rem;
+}
+
+.section-title {
+    background-color: #004AAD;
+    color: white;
+    padding: 10px 15px;
+    margin-bottom: 0;
+}
+
+.submenu {
+    padding-left: 20px;
+    background-color: #ffffff;
+}
+
+.logo {
+    padding: 20px;
+    border-bottom: 1px solid #dee2e6;
+    background-color: white;
+}
+
+.logo img {
+    max-width: 200px;
+}
+
+.child-menu {
+    padding-left: 1rem;
+    border-left: 2px solid #e9ecef;
+    margin-left: 1rem;
+}
+
+.btn-menu {
+    width: 100%;
+    text-align: left;
+    padding: 8px 15px;
+    background: none;
+    border: none;
+    color: #333;
+}
+
+.btn-menu:hover {
+    background-color: #e9ecef;
+}
