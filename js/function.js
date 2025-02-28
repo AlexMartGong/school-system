@@ -1,6 +1,6 @@
 /**
  * Función para cargar contenido dinámicamente en la página
- * @param {string} opc - Opción seleccionada (career, student, etc.)
+ * @param {string} opc - Opción seleccionada (career, period, etc.)
  * @param {string} filter - Filtro opcional para la consulta
  */
 function option(opc, filter) {
@@ -28,8 +28,8 @@ function option(opc, filter) {
             case 'career':
                 url = "career/main.php";
                 break;
-            case 'student':
-                url = "student/main.php";
+            case 'period':
+                url = "period/main.php";
                 break;
             case 'teacher':
                 url = "teacher/main.php";
@@ -88,6 +88,18 @@ function option(opc, filter) {
                                 pageLength: 10
                             });
                         }
+
+                        // Para la tabla de periodos
+                        if (opc === 'period' && $('#tablePeriod').length) {
+                            $('#tablePeriod').DataTable({
+                                language: {
+                                    url: "https://cdn.datatables.net/plug-ins/1.13.5/i18n/es-ES.json"
+                                },
+                                responsive: true,
+                                pageLength: 10
+                            });
+                        }
+
                     } catch (tableError) {
                         console.error("Error al inicializar DataTable:", tableError);
                     }
@@ -108,6 +120,10 @@ function option(opc, filter) {
         console.error("Error general:", e);
         alert("Ocurrió un error: " + e.message);
     }
+}
+
+function clearArea(myArea) {
+    document.getElementById(myArea).innerHTML = "";
 }
 
 document.addEventListener('DOMContentLoaded', function () {

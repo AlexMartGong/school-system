@@ -12,6 +12,8 @@
     <link href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../css/style.css" rel="stylesheet">
+    <!-- jQuery UI CSS - needed for datepicker -->
+    <link href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" rel="stylesheet">
 </head>
 <body>
 <!-- Botón de menú para móvil -->
@@ -55,7 +57,7 @@
                 </h5>
                 <div class="submenu">
                     <!-- Enlaces directos sin submenús -->
-                    <a href="javascript:void(0);" onclick="option('settings', '');" class="nav-link"><i
+                    <a href="javascript:void(0);" onclick="option('period', '');" class="nav-link"><i
                                 class="fas fa-calendar me-2"></i>Periodo</a>
                     <a href="javascript:void(0);" class="nav-link"><i class="fas fa-tasks me-2"></i>Parcial</a>
                 </div>
@@ -94,5 +96,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 <!-- Función personalizada JS (después de cargar jQuery) -->
 <script src="../js/function.js"></script>
+<!-- jQuery UI - needed for datepicker -->
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<script src="../js/function_period.js"></script>
 </body>
 </html>

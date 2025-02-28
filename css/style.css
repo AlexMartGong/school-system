@@ -138,3 +138,44 @@
     width: 20px;
     text-align: center;
 }
+
+/* Estilos adicionales para mejorar el formulario */
+.card {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-header {
+    border-bottom: 0;
+}
+
+.bg-primary {
+    background-color: #0033A0 !important; /* Color institucional */
+}
+
+.text-primary {
+    color: #0033A0 !important; /* Color institucional */
+}
+
+.btn-primary {
+    background-color: #0033A0;
+    border-color: #0033A0;
+}
+
+.btn-primary:hover {
+    background-color: #002169;
+    border-color: #002169;
+}
+
+.form-floating > .form-control {
+    height: calc(3.5rem + 2px);
+    padding: 1rem 0.75rem;
+}
+
+.form-floating > label {
+    padding: 1rem 0.75rem;
+}
+
+.card-header h6 {
+    font-weight: 600;
+}
