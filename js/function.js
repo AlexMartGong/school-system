@@ -109,3 +109,41 @@ function option(opc, filter) {
         alert("Ocurrió un error: " + e.message);
     }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+
+    if (menuToggle && sidebar) {
+        menuToggle.addEventListener('click', function () {
+            sidebar.classList.toggle('show');
+        });
+
+        // Cerrar menú al hacer clic en un enlace (en dispositivos móviles)
+        const navLinks = sidebar.querySelectorAll('.nav-link');
+        navLinks.forEach(function (link) {
+            link.addEventListener('click', function () {
+                if (window.innerWidth < 992) {
+                    sidebar.classList.remove('show');
+                }
+            });
+        });
+
+        // Cerrar menú al hacer clic fuera del mismo
+        document.addEventListener('click', function (event) {
+            const isClickInsideMenu = sidebar.contains(event.target);
+            const isClickOnToggle = menuToggle.contains(event.target);
+
+            if (!isClickInsideMenu && !isClickOnToggle && sidebar.classList.contains('show')) {
+                sidebar.classList.remove('show');
+            }
+        });
+    }
+
+    // Ajustar diseño cuando cambia el tamaño de la ventana
+    window.addEventListener('resize', function () {
+        if (window.innerWidth >= 992 && sidebar.classList.contains('show')) {
+            sidebar.classList.remove('show');
+        }
+    });
+});

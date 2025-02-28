@@ -14,10 +14,15 @@
     <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
+<!-- Botón de menú para móvil -->
+<button class="menu-toggle d-lg-none" id="menuToggle">
+    <i class="fas fa-bars"></i>
+</button>
+
 <div class="container-fluid">
     <div class="row">
         <!-- Sidebar -->
-        <div class="col-md-3 col-lg-2 px-0 sidebar">
+        <div class="col-md-3 col-lg-2 px-0 sidebar" id="sidebar">
             <div class="logo">
                 <img src="../img/logo-tecmm.png" alt="TecJalisco Logo" class="img-fluid">
             </div>
@@ -73,9 +78,9 @@
 
         <!-- Contenido principal -->
         <div class="col-md-9 col-lg-10 ms-auto p-4">
-            <div id="mainContent" class="p-3 rounded">
+            <div id="mainContent" class="p-3 rounded text-center">
                 <!-- El contenido se cargará aquí dinámicamente -->
-                <h2>Bienvenido al sistema</h2>
+                <h2 class="my-4">Bienvenido al sistema</h2>
             </div>
         </div>
     </div>
