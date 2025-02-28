@@ -13,10 +13,11 @@
 
             <!-- Primera fila: ID y Nombre -->
             <div class="row mb-4">
-                <!-- ID Periodo -->
+                <!-- ID Periodo (desactivado) -->
                 <div class="col-md-3">
                     <div class="form-floating mb-3 mb-md-0">
-                        <input type="text" class="form-control" id="txtId" placeholder="202401" required>
+                        <input type="text" class="form-control" id="txtId" placeholder="202401" required readonly
+                               disabled>
                         <label for="txtId">ID Periodo</label>
                         <div class="invalid-feedback">
                             Por favor ingrese un ID válido
@@ -110,7 +111,7 @@
                     <button type="button" class="btn btn-primary" onclick="validafrmPeriodo();">
                         <i class="fas fa-save me-2"></i>Guardar
                     </button>
-                    <button type="button" class="btn btn-outline-secondary" onclick="clearArea('frmArea');">
+                    <button type="button" class="btn btn-outline-secondary" onclick="closeFormPeriodoAnimado();">
                         <i class="fas fa-times-circle me-2"></i>Cancelar
                     </button>
                 </div>
