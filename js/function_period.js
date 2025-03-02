@@ -47,8 +47,11 @@ function cargarNuevoFormulario(id) {
                 throw status;
             }
         } catch (e) {
-            console.log('mainAlertZone', 'Error al cargar el formulario: ' + e, 'danger');
+            // Usar la nueva función de modal de error
+            mostrarErrorCaptura('Error al cargar el formulario: ' + e);
         }
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+        mostrarErrorCaptura('Error de conexión: ' + textStatus + ' - ' + errorThrown);
     });
 }
 

@@ -163,3 +163,194 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+/**
+ * Función para mostrar ventana modal de error de captura
+ * @param {string} mensaje - Mensaje de error a mostrar
+ */
+function mostrarErrorCaptura(mensaje) {
+    // Crear el contenido del modal
+    let modalHTML = `
+    <div class="modal fade" id="errorCapturaModal" tabindex="-1" aria-labelledby="errorCapturaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="errorCapturaModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Error de Captura
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-times-circle text-danger fa-4x"></i>
+                    </div>
+                    <p class="text-center">${mensaje || 'Se ha producido un error durante la captura de datos.'}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>`;
+
+    // Remover modal anterior si existe
+    let modalAnterior = document.getElementById('errorCapturaModal');
+    if (modalAnterior) {
+        modalAnterior.remove();
+    }
+
+    // Agregar el modal al documento
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    // Mostrar el modal
+    let modalElement = document.getElementById('errorCapturaModal');
+    let modal = new bootstrap.Modal(modalElement);
+    modal.show();
+
+    // Eliminar el modal del DOM cuando se cierre
+    modalElement.addEventListener('hidden.bs.modal', function () {
+        modalElement.remove();
+    });
+}
+
+/**
+ * Función para mostrar ventana de alerta por falta de datos
+ * @param {string} mensaje - Mensaje específico sobre los datos faltantes
+ * @param {Function} callback - Función a ejecutar al confirmar (opcional)
+ */
+function mostrarFaltaDatos(mensaje, callback) {
+    // Crear el contenido del modal
+    let modalHTML = `
+    <div class="modal fade" id="faltaDatosModal" tabindex="-1" aria-labelledby="faltaDatosModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-dark">
+                    <h5 class="modal-title" id="faltaDatosModalLabel">
+                        <i class="fas fa-exclamation-circle me-2"></i>Datos Incompletos
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-clipboard-list text-warning fa-4x"></i>
+                    </div>
+                    <p class="text-center">${mensaje || 'Hay campos obligatorios sin completar. Por favor, revise el formulario.'}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnEntendido" data-bs-dismiss="modal">Entendido</button>
+                </div>
+            </div>
+        </div>
+    </div>`;
+
+    // Remover modal anterior si existe
+    let modalAnterior = document.getElementById('faltaDatosModal');
+    if (modalAnterior) {
+        modalAnterior.remove();
+    }
+
+    // Agregar el modal al documento
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    // Mostrar el modal
+    let modalElement = document.getElementById('faltaDatosModal');
+    let modal = new bootstrap.Modal(modalElement);
+    modal.show();
+
+    // Configurar callback si se proporciona
+    if (typeof callback === 'function') {
+        document.getElementById('btnEntendido').addEventListener('click', callback);
+    }
+
+    // Eliminar el modal del DOM cuando se cierre
+    modalElement.addEventListener('hidden.bs.modal', function () {
+        modalElement.remove();
+    });
+}
+
+/**
+ * Función para mostrar ventana de éxito cuando se guardan datos
+ * @param {string} mensaje - Mensaje de éxito a mostrar
+ * @param {Function} callback - Función a ejecutar al confirmar (opcional)
+ */
+function mostrarDatosGuardados(mensaje, callback) {
+    // Crear el contenido del modal
+    let modalHTML = `
+    <div class="modal fade" id="datosGuardadosModal" tabindex="-1" aria-labelledby="datosGuardadosModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="datosGuardadosModalLabel">
+                        <i class="fas fa-check-circle me-2"></i>Operación Exitosa
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-save text-success fa-4x"></i>
+                    </div>
+                    <p class="text-center">${mensaje || 'Los datos se han guardado correctamente.'}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnAceptar" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>`;
+
+    // Remover modal anterior si existe
+    let modalAnterior = document.getElementById('datosGuardadosModal');
+    if (modalAnterior) {
+        modalAnterior.remove();
+    }
+
+    // Agregar el modal al documento
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    // Mostrar el modal
+    let modalElement = document.getElementById('datosGuardadosModal');
+    let modal = new bootstrap.Modal(modalElement);
+    modal.show();
+
+    // Configurar callback si se proporciona
+    if (typeof callback === 'function') {
+        document.getElementById('btnAceptar').addEventListener('click', callback);
+    }
+
+    // Eliminar el modal del DOM cuando se cierre
+    modalElement.addEventListener('hidden.bs.modal', function () {
+        modalElement.remove();
+    });
+}
+
+/**
+ * Función para validar el formulario de periodo
+ * Integración con la función existente validafrmPeriodo
+ */
+function validafrmPeriodo() {
+    // Obtener los valores de los campos del formulario
+    const id = document.getElementById('txtId').value.trim();
+    const periodo = document.getElementById('txtPeriodo').value.trim();
+    const fechaInicio = document.getElementById('txtFechaInicio').value.trim();
+    const fechaTermino = document.getElementById('txtFechaTermino').value.trim();
+    const fechaInicioAjuste = document.getElementById('txtFechaInicioAjuste').value.trim();
+    const fechaFinalAjuste = document.getElementById('txtFechaFinalAjuste').value.trim();
+
+    // Validar campos obligatorios
+    if (!id || !periodo || !fechaInicio || !fechaTermino || !fechaInicioAjuste || !fechaFinalAjuste) {
+        mostrarFaltaDatos('Por favor, complete todos los campos obligatorios para continuar.');
+        return false;
+    }
+
+    // Aquí iría la lógica de envío del formulario
+    // Por ahora solo mostramos un modal de éxito como ejemplo
+
+    // Simulación de éxito (esto se reemplazaría por la lógica real de guardado)
+    mostrarDatosGuardados('El período académico ha sido guardado exitosamente.', function () {
+        // Callback que se ejecutaría después de guardar los datos
+        // Por ejemplo, recargar la lista de periodos
+        option('period', '');
+    });
+
+    return true;
+}
