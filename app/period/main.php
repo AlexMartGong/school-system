@@ -1,4 +1,4 @@
-<h3>Periodo</h3>
+<h3>PERIODO</h3>
 
 <div class="row mb-3">
     <div class="col-12 text-end">
